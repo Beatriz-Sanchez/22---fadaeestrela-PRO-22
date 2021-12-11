@@ -18,7 +18,7 @@ function preload() {
 function setup() {
   createCanvas(800, 750);
 
-  //escrever código para tocar o som vozFada
+  //OPCIONAL: escrever código para tocar o som vozFada
 
 
   //criar sprite de fada e adicionar animação para fada
@@ -44,7 +44,8 @@ function setup() {
 function draw() {
   background(bgImg);
 
-  //fazer com que posição do sprite seja a mesma que a do corpo starBody
+  star.x = starBody.position.x;
+  star.y = starBody.position.y;
 
   //se a estrela encostar na fada, o corpo fica estático
   /*
@@ -59,11 +60,10 @@ function draw() {
 }
 
 function keyPressed() {
-  //**lembrar que dentro do function keyPressed() usamos keyCode ====
-
-
-  //se a seta para baixo for apertada, estrela deixa de ser estática
-
+  if(keyCode===DOWN_ARROW)){
+		Matter.Body.setStatic(starBody,false);
+  }
+	
   //se a seta para a direita for apertada, o x da fada aumenta
 
   //se a seta para a esquerda for apertada, o x da fada diminui
